@@ -6,6 +6,10 @@
     margin: -2px;
 }
 
+.number {
+    display: table;
+}
+
 .board {
     background-color: palevioletred;
 }
