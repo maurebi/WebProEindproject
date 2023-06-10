@@ -15,5 +15,15 @@
 }
 
 .start {
-    background-color: blue;
+    background-color: rgb(102, 170, 206);
+}
+
+.start.left{
+    border-right: 0;
+    width: 41px;
+}
+
+.start.right{
+    border-left: 0;
+    width: 41px;
 }
