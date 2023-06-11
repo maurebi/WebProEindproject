@@ -103,5 +103,9 @@ function dice() {
     let diced = Math.floor(Math.random()*6)+1;
     let image = "img/dice" + diced + ".png";
     out.innerHTML = "<img src='"+image+"'/>";
+
+    let dicedOutput = document.getElementById("diced")
+    dicedOutput.innerHTML = "Er is "+diced+" gegooid."
+
     return diced;
 }

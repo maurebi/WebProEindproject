@@ -14,6 +14,11 @@
     border: 1px solid black;
 }
 
+.upperrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 3%;
+}
 
 .number {
     display: table;
@@ -46,14 +51,72 @@
 
 h1{
     border: 1px solid black;
+    text-align: center;
 }
 
-img{
-    padding-bottom: 20px;
+#outputDice {
+    width:80px;
+    height:80px;
+    padding-left: 42%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
 }
 
 button{
     margin: 20px;
+}
+
+.gans {
+    background-color: mediumpurple;
+}
+
+.brug{
+    background-color: saddlebrown;
+}
+
+.dedood{
+    background-color: #2f2f2f;
+}
+
+.herberg {
+    background-color: lightslategrey;
+}
+
+.doornstruik {
+    background-color: darkgreen;
+}
+
+.opnieuwgooien {
+    background-color: chocolate;
+}
+
+.legenda {
+    width: 80%;
+    border: 1px solid black;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+.row1legenda, .row2legenda {
+    padding-left: 1%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr 3fr;
+}
+
+.row1legenda {
+    padding-bottom: 1%;
+    padding-top: 2%;
+}
+
+.row2legenda {
+    padding-bottom: 2%;
+}
+
+.meaning {
+    text-align: left;
 }
 
 @media (max-width: 767.98px) {
