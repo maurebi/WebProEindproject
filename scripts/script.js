@@ -195,9 +195,37 @@ function rollDice() {
   let currentPlayer = players[currentPlayerIndex];
   currentPlayer.position += diceValue;
 
-        // Increment the current player index for the next turn
-  currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+    //   handle special boxes
 
+    //  brug -> from box 6 to 12
+    if (currentPlayer.position == 6){
+        // print hier current player voor even
+        currentPlayer.position += 6;
+    }
+
+    // doornstruik -> from box 42 to 37
+    if (currentPlayer.position == 42){
+        // print hier current player voor even
+        currentPlayer.position += -5;
+    }
+
+    // gans -> forward the dice value again
+    if (currentPlayer.position == 5 || currentPlayer.position == 9 || currentPlayer.position == 14 || currentPlayer.position == 18 ||
+        currentPlayer.position == 23 || currentPlayer.position == 27 || currentPlayer.position == 32 || currentPlayer.position == 36 ||
+        currentPlayer.position == 41 || currentPlayer.position == 45 || currentPlayer.position == 50 || currentPlayer.position == 54 ||
+        currentPlayer.position == 59) {
+        // print hier current player voor even
+        currentPlayer.position += diceValue;
+    }
+
+    // dice again
+    if (currentPlayer.position == 26 || currentPlayer.position == 53) {
+        currentPlayerIndex = currentPlayerIndex
+    }
+    else {
+        // Increment the current player index for the next turn
+        currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+    }
   // Save and sync the player data
   savePlayerData(currentPlayer);
 
