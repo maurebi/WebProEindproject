@@ -3,6 +3,13 @@ include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body-start.php';
 ?>
     <h1>Ganzebord</h1>
+<h2>Het is de beurt van: Speler 1!</h2>
+
+<div>
+    <button onclick="dice()">Dobbelen!</button>
+    <div id="outputDice"></div>
+</div>
+
 <div class="boardbox">
         <div class="row row1">
             <div class="box"></div>
@@ -324,11 +331,6 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
         </div>
-
-    <div>
-        <button onclick="dice()">Dobbelen!</button>
-        <div id="outputDice"></div>
-    </div>
 
     <?php
     include __DIR__ . '/tpl/body-end.php';

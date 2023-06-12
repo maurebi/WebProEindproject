@@ -1,8 +1,14 @@
+.container{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
 .box {
     width: 40px;
     height: 40px;
     display: inline-block;
-    margin: -2px;
+    margin-left: -2px;
+    margin-right: -2px;
     border: 1px solid black;
 }
 
@@ -13,8 +19,26 @@
 
 .boardbox{
     border: 1px solid black;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 .start {
     background-color: blue;
+}
+
+h1{
+    border: 1px solid black;
+}
+
+img{
+    padding-bottom: 20px;
+}
+
+button{
+    margin: 20px;
+}
+
+@media (min-width: 767.99px) {
+
 }
