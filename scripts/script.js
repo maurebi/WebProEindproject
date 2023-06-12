@@ -1,4 +1,3 @@
-// Initialize playerId variable
 let playerId = 1;
 let players = []
 
