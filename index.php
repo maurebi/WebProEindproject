@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html>
+<?php
+include __DIR__ . '/tpl/head.php';
+include __DIR__ . '/tpl/body-start.php';
+?>
+    <h1>Ganzebord</h1>
+<h2>Het is de beurt van: Speler 1!</h2>
 
 <head>
     <link rel="stylesheet" href="css/styles.css">
@@ -13,6 +17,12 @@
     <h1>GANZENBORD</h1>
     <div class="container">
         <button id="incrementButton">ADD PLAYER</button>
+<div>
+    <button onclick="dice()">Dobbelen!</button>
+    <div id="outputDice"></div>
+</div>
+
+<div class="boardbox">
         <div class="row row1">
             <div class="box"></div>
             <div class="box"></div>
@@ -247,7 +257,7 @@
             <div class="box"></div>
             <div class="box"></div>
             <div id="63" class="box board"><p class="number">63</p></div>
-            <div id="finish" class="box board start left"><p class="number">64</p></div>
+            <div id="64" class="box board start left"><p class="number">64</p></div>
             <div class="box board start right"></div>
             <div class="box"></div>
             <div id="55" class="box board"><p class="number">55</p></div>
@@ -334,7 +344,8 @@
             <div class="box"></div>
         </div>
 
-    </div>
-</body>
-
-</html>
+    <?php
+    include __DIR__ . '/tpl/body-end.php';
+    /* Footer */
+    include __DIR__ . '/tpl/footer.php';
+    ?>
