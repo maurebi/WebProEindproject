@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="scripts/script.js"></script>
-    <meta charset="UTF-8">
-    <title>Ganzebord</title>
-</head>
-
-<body>
-    <h1>GANZENBORD</h1>
-    <div class="container">
+<?php
+include __DIR__ . '/tpl/head.php';
+include __DIR__ . '/tpl/body-start.php';
+?>
+    <h1>Ganzebord</h1>
+<div class="boardbox">
         <div class="row row1">
             <div class="box"></div>
             <div class="box"></div>
@@ -332,12 +325,13 @@
             <div class="box"></div>
         </div>
 
-    </div>
-
     <div>
         <button onclick="dice()">Dobbelen!</button>
         <div id="outputDice"></div>
     </div>
-</body>
 
-</html>
+    <?php
+    include __DIR__ . '/tpl/body-end.php';
+    /* Footer */
+    include __DIR__ . '/tpl/footer.php';
+    ?>

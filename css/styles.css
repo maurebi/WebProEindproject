@@ -1,40 +1,20 @@
 .box {
     width: 40px;
     height: 40px;
-    border: 1px solid black;
     display: inline-block;
     margin: -2px;
-}
-
-.number {
-    display: table;
+    border: 1px solid black;
 }
 
 .board {
     background-color: palevioletred;
+
+}
+
+.boardbox{
+    border: 1px solid black;
 }
 
 .start {
-    background-color: rgb(102, 170, 206);
-}
-
-.start.left{
-    border-right: 0;
-    width: 41px;
-}
-
-.start.right{
-    border-left: 0;
-    width: 41px;
-}
-
-#outputDice {
-    width:80px;
-    height:80px;
-    border:1px solid black;
-}
-
-img {
-    width: 100%;
-    height: 100%;
+    background-color: blue;
 }
