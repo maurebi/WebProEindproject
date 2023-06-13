@@ -119,6 +119,14 @@ button{
     text-align: left;
 }
 
+.player {
+    display: block;
+}
+
+.marginTop{
+    margin-top: -50px;
+}
+
 @media (max-width: 767.98px) {
 
 }

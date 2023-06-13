@@ -19,7 +19,7 @@ include __DIR__ . '/tpl/body-start.php';
                 <button id="incrementButton">ADD PLAYER</button>
             </div>
             <div>
-                <button onclick="dice()">DOBBELEN</button>
+                <button id="diceButton">DOBBELEN</button>
                 <div id="outputDice"></div>
             </div>
             <div class="beurt">
@@ -41,7 +41,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box herberg"></div>
             <div class="meaning">Je overnacht een nachtje in de herberg. Sla een beurt over.</div>
             <div class="box doornstruik"></div>
-            <div class="meaning">De doorstruik prikkelt je terug naar 37.</div>
+            <div class="meaning">De doornstruik prikkelt je terug naar 37.</div>
             <div class="box opnieuwgooien"></div>
             <div class="meaning">Gooi nog eens.</div>
         </div>

@@ -9,7 +9,7 @@ $player = json_decode($playerData);
 // For example, you can update the player's position, score, etc.
 
 // Simulate a server update by incrementing the player's position
-$player->position++;
+// $player->position++;
 
 
 

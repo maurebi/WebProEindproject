@@ -1,5 +1,6 @@
 let playerId = 1;
 let players = []
+let currentPlayerIndex = 0;
 
 // Player object constructor
 function Player(id, position, name, score) {
@@ -67,15 +68,29 @@ function parsePlayerData(data) {
 
 // Function to render player positions
 function renderPlayerPositions() {
+  
+  $('.box').children('img').remove();
+
   players.forEach(function(player) {
-    // Update the CSS of the corresponding HTML element based on the player's position
     let boxId = player.position;
     let boxElement = document.getElementById(boxId);
 
-    // Example: Add a CSS class to the box element to display the player
-    boxElement.classList.add('player-icon');
+    let playerElement = document.createElement('img');
+    playerElement.src = "img/goose1.png";
+    playerElement.alt = player.id;
+    playerElement.className = "player";
+
+    if (!boxElement.classList.contains('start')) {
+      playerElement.classList.add('marginTop');
+    }
+
+    playerElement.id = 'player-' + player.id;
+
+    boxElement.appendChild(playerElement);
+
   });
 }
+
 
 // Function to handle button click event
 function incrementId() {
@@ -95,9 +110,11 @@ function incrementId() {
 
 // Get the button element
 const button = document.getElementById("incrementButton");
-
-// Add a click event listener to the button
 button.addEventListener("click", incrementId);
+
+const diceButton = document.getElementById("diceButton");
+diceButton.addEventListener("click", rollDice);
+
 function dice() {
     let out = document.getElementById("outputDice");
     let diced = Math.floor(Math.random()*6)+1;
@@ -108,4 +125,22 @@ function dice() {
     dicedOutput.innerHTML = "Er is "+diced+" gegooid."
 
     return diced;
+}
+
+function rollDice() {
+  // Roll the dice
+  let diceValue = dice();
+
+  // Display the dice value
+  console.log('Dice value:', diceValue);
+
+  // Update the current player's position based on the dice roll
+  let currentPlayer = players[currentPlayerIndex];
+  currentPlayer.position += diceValue;
+
+  // Increment the current player index for the next turn
+  currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+
+  // Save and sync the player data
+  savePlayerData(currentPlayer);
 }
