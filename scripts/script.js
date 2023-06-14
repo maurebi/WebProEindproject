@@ -78,15 +78,17 @@ function renderPlayerPositions() {
     let boxElement = document.getElementById(boxId);
 
     let playerElement = document.createElement('img');
+    playerElement.className = "player";
     if (player.color == "Wit"){
-        playerElement.src = "img/goose1.png";
+      playerElement.classList.add('marginWhite');
+      playerElement.src = "img/goose1.png";
     }
     else if (player.color == "Zwart"){
-        playerElement.src = "img/goose2.png";
+      playerElement.classList.add('marginBlack');
+      playerElement.src = "img/goose2.png";
     }
 
     playerElement.alt = player.id;
-    playerElement.className = "player";
 
     if (!boxElement.classList.contains('start')) {
       playerElement.classList.add('marginTop');
