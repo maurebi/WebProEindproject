@@ -30,6 +30,11 @@
     border: 1px solid black;
 }
 
+.beurtImg {
+    height: 100px;
+    width: auto;
+}
+
 .number {
     display: table;
 }

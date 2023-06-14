@@ -17,6 +17,14 @@ include __DIR__ . '/tpl/body-start.php';
         <div class="upperrow">
             <div class="addplayer">
                 <button id="startButton">SETUP BOARD</button>
+                <div class="beurtDiv hidden" id="beurtDivWit">
+                    <h2>Het is de beurt van:</h2>
+                    <img class="beurtImg" src="img/goose1.png" alt="witte gans"></img>
+                </div>
+                <div class="beurtDiv hidden" id="beurtDivZwart">
+                    <h2>Het is de beurt van:</h2>
+                    <img class="beurtImg" src="img/goose2.png" alt="zwarte gans"></img>
+                </div>
             </div>
             <div>
                 <button id="diceButton">DOBBELEN</button>

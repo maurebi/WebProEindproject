@@ -158,6 +158,7 @@ startButton.addEventListener("click", function() {
 startButton.classList.add('hidden');
 setupPlayers();
 setupPlayers();
+beurtDivWit.classList.remove("hidden");
 });
 
 const diceButton = document.getElementById("diceButton");
@@ -181,7 +182,18 @@ function printTurn(){
     let nextPlayer = currentPlayer.color;
     console.log('Current player:', nextPlayer);
     let nextPlayeroutput = document.getElementById("beurt")
+    let beurtDivWit = document.getElementById("beurtDivWit");
+    let beurtDivZwart = document.getElementById("beurtDivZwart");
+
     nextPlayeroutput.innerHTML = nextPlayer+" is aan de beurt!";
+
+    if (nextPlayer === "Wit") {
+      beurtDivWit.classList.remove("hidden");
+      beurtDivZwart.classList.add("hidden");
+    } else if (nextPlayer === "Zwart") {
+      beurtDivWit.classList.add("hidden");
+      beurtDivZwart.classList.remove("hidden");
+  }
 }
 
 function rollDice() {
