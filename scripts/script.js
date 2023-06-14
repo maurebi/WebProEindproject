@@ -95,16 +95,25 @@ function renderPlayerPositions() {
 // Function to handle button click event
 function incrementId() {
     // Create and initialize the player object
-    let player = new Player(playerId, 0, 'Player Name', 0);
-    
-    // Increment the player ID
-    playerId++;
-    
-    // Save and sync the player data
-    savePlayerData(player);
-    
-    // Display the player object
-    console.log('New player:', player);
+    if (playerId >= 3) {
+        alert("Too many players: For now this game can only be played with one or two players. We are sorry for the inconvenience.")
+    }
+    else {
+        let player = new Player(playerId, 0, 'Player Name', 0);
+
+        // Increment the player ID
+        playerId++;
+
+        // Save and sync the player data
+        savePlayerData(player);
+
+        // Display the player object
+        console.log('New player:', player);
+
+        let nexPlayeroutput = document.getElementById("beurt")
+        nexPlayeroutput.innerHTML = "Het is de beurt van speler 1!";
+
+    }
   }
   
 
@@ -115,7 +124,7 @@ button.addEventListener("click", incrementId);
 const diceButton = document.getElementById("diceButton");
 diceButton.addEventListener("click", rollDice);
 
-function dice() {
+function printDice() {
     let out = document.getElementById("outputDice");
     let diced = Math.floor(Math.random()*6)+1;
     let image = "img/dice" + diced + ".png";
@@ -127,9 +136,18 @@ function dice() {
     return diced;
 }
 
+function printTurn(){
+    // Print that it is the next player's turn
+    let currentPlayer = players[currentPlayerIndex];
+    let nextPlayer = currentPlayer.id;
+    console.log('Current player:', nextPlayer);
+    let nextPlayeroutput = document.getElementById("beurt")
+    nextPlayeroutput.innerHTML = "Het is de beurt van speler "+nextPlayer+"!";
+}
+
 function rollDice() {
   // Roll the dice
-  let diceValue = dice();
+  let diceValue = printDice();
 
   // Display the dice value
   console.log('Dice value:', diceValue);
@@ -138,9 +156,14 @@ function rollDice() {
   let currentPlayer = players[currentPlayerIndex];
   currentPlayer.position += diceValue;
 
-  // Increment the current player index for the next turn
+        // Increment the current player index for the next turn
   currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
 
   // Save and sync the player data
   savePlayerData(currentPlayer);
+
+    // Print current turn
+    let CurrentTurn = printTurn();
+
+
 }
