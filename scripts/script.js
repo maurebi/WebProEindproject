@@ -95,16 +95,25 @@ function renderPlayerPositions() {
 // Function to handle button click event
 function incrementId() {
     // Create and initialize the player object
-    let player = new Player(playerId, 0, 'Player Name', 0);
-    
-    // Increment the player ID
-    playerId++;
-    
-    // Save and sync the player data
-    savePlayerData(player);
-    
-    // Display the player object
-    console.log('New player:', player);
+    if (playerId >= 3) {
+        alert("Too many players: For now this game can only be played with one or two players. We are sorry for the inconvenience.")
+    }
+    else {
+        let player = new Player(playerId, 0, 'Player Name', 0);
+
+        // Increment the player ID
+        playerId++;
+
+        // Save and sync the player data
+        savePlayerData(player);
+
+        // Display the player object
+        console.log('New player:', player);
+
+        let nexPlayeroutput = document.getElementById("beurt")
+        nexPlayeroutput.innerHTML = "Het is de beurt van speler 1!";
+
+    }
   }
   
 
@@ -132,8 +141,8 @@ function printTurn(){
     let currentPlayer = players[currentPlayerIndex];
     let nextPlayer = currentPlayer.id;
     console.log('Current player:', nextPlayer);
-    let nexPlayeroutput = document.getElementById("beurt")
-    nexPlayeroutput.innerHTML = "Het is de beurt van speler "+nextPlayer+"!";
+    let nextPlayeroutput = document.getElementById("beurt")
+    nextPlayeroutput.innerHTML = "Het is de beurt van speler "+nextPlayer+"!";
 }
 
 function rollDice() {
