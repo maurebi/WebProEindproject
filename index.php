@@ -22,11 +22,16 @@ include __DIR__ . '/tpl/body-start.php';
                 <button id="diceButton">DOBBELEN</button>
                 <div id="outputDice"></div>
             </div>
-            <div class="beurt">
-                <h3>Het is de beurt van <b>speler 1</b>!</h3>
+            <div class="Turninfo">
+                <h2>
+                <div id="beurt" class="beurt"></div>
+                </h2>
+                <h3>
                 <div id="diced"></div>
+                </h3>
             </div>
         </div>
+    </div>
 <div class="legenda">
         <div class="row1legenda">
             <div class="box gans"></div>
