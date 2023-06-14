@@ -12,8 +12,8 @@ include __DIR__ . '/tpl/body-start.php';
 </head>
 
 <body>
-    <h1>GANZENBORD</h1>
     <div class="container">
+        <h1>GANZENBORD</h1>
         <div class="upperrow">
             <div class="addplayer">
                 <button id="incrementButton">ADD PLAYER</button>

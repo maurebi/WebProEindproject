@@ -3,11 +3,12 @@ let players = []
 let currentPlayerIndex = 0;
 
 // Player object constructor
-function Player(id, position, name, score) {
+function Player(id, position, name, score, color) {
   this.id = id;
   this.position = position;
   this.name = name;
   this.score = score;
+  this.color = color;
 }
 
 // Function to save and sync player data
@@ -49,9 +50,10 @@ function parsePlayerData(data) {
         existingPlayer.position = data.position;
         existingPlayer.name = data.name;
         existingPlayer.score = data.score;
+        existingPlayer.color = data.color;
       } else {
         // Create a new Player object based on the received data
-        var player = new Player(data.id, data.position, data.name, data.score);
+        var player = new Player(data.id, data.position, data.name, data.score, data.color);
   
         // Push the player object to the players array
         players.push(player);
@@ -76,7 +78,13 @@ function renderPlayerPositions() {
     let boxElement = document.getElementById(boxId);
 
     let playerElement = document.createElement('img');
-    playerElement.src = "img/goose1.png";
+    if (player.color == "Wit"){
+        playerElement.src = "img/goose1.png";
+    }
+    else if (player.color == "Zwart"){
+        playerElement.src = "img/goose2.png";
+    }
+
     playerElement.alt = player.id;
     playerElement.className = "player";
 
@@ -100,7 +108,12 @@ function incrementId() {
     }
     else {
         let player = new Player(playerId, 0, 'Player Name', 0);
-
+            if (player.id == 1) {
+                player.color = "Wit";
+            }
+            else if (player.id == 2) {
+                player.color = "Zwart";
+            }
         // Increment the player ID
         playerId++;
 
@@ -111,7 +124,7 @@ function incrementId() {
         console.log('New player:', player);
 
         let nexPlayeroutput = document.getElementById("beurt")
-        nexPlayeroutput.innerHTML = "Het is de beurt van speler 1!";
+        nexPlayeroutput.innerHTML = "Wit is aan de beurt!";
 
     }
   }
@@ -139,10 +152,10 @@ function printDice() {
 function printTurn(){
     // Print that it is the next player's turn
     let currentPlayer = players[currentPlayerIndex];
-    let nextPlayer = currentPlayer.id;
+    let nextPlayer = currentPlayer.color;
     console.log('Current player:', nextPlayer);
     let nextPlayeroutput = document.getElementById("beurt")
-    nextPlayeroutput.innerHTML = "Het is de beurt van speler "+nextPlayer+"!";
+    nextPlayeroutput.innerHTML = nextPlayer+" is aan de beurt!";
 }
 
 function rollDice() {

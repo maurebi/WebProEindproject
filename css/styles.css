@@ -4,6 +4,13 @@
     max-width: 95%;
     margin-left: auto;
     margin-right: auto;
+    background-color: #ffc43d;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.legenda{
+    background-color: white;
 }
 
 .box {
@@ -12,12 +19,15 @@
     display: inline-block;
     margin: -2px;
     border: 1px solid black;
+    background-color: white;
 }
 
 .upperrow {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding-bottom: 3%;
+    background-color: white;
+    border: 1px solid black;
 }
 
 .number {
@@ -25,7 +35,7 @@
 }
 
 .board {
-    background-color: palevioletred;
+    background-color: #fff3b0;
 
 }
 
@@ -36,7 +46,8 @@
 }
 
 .start {
-    background-color: rgb(102, 170, 206);
+    background-color: #323031;
+    color: white;
 }
 
 .start.left{
@@ -52,6 +63,7 @@
 h1{
     border: 1px solid black;
     text-align: center;
+    background-color: white;
 }
 
 #outputDice {
@@ -70,27 +82,27 @@ button{
 }
 
 .gans {
-    background-color: mediumpurple;
+    background-color: #fe7f2d;
 }
 
 .brug{
-    background-color: saddlebrown;
+    background-color: #177e89;
 }
 
 .dedood{
-    background-color: #2f2f2f;
+    background-color: #540b0e;
 }
 
 .herberg {
-    background-color: lightslategrey;
+    background-color: #e09f3e;
 }
 
 .doornstruik {
-    background-color: darkgreen;
+    background-color: #849324;
 }
 
 .opnieuwgooien {
-    background-color: chocolate;
+    background-color: #9e2a2b;
 }
 
 .legenda {
