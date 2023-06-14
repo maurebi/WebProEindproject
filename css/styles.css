@@ -123,8 +123,12 @@ button{
     display: block;
 }
 
-.marginTop{
+.marginTop {
     margin-top: -50px;
+}
+
+.hidden {
+    display: none;
 }
 
 @media (max-width: 767.98px) {
