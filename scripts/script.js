@@ -129,10 +129,34 @@ function incrementId() {
     }
   }
   
+// Function to handle button click event
+function setupPlayers() {
+  // Create and initialize the player object
+  let player = new Player(playerId, 0, 'Player Name', 0);
+    if (player.id == 1) {
+      player.color = "Wit";
+    }
+    else if (player.id == 2) {
+      player.color = "Zwart";
+    }
+  // Increment the player ID
+  playerId++;
+  // Save and sync the player data
+  savePlayerData(player);
+  // Display the player object
+  console.log('New player:', player);
+  let nexPlayeroutput = document.getElementById("beurt")
+  nexPlayeroutput.innerHTML = "Het is de beurt van speler 1!";
+}
+
 
 // Get the button element
-const button = document.getElementById("incrementButton");
-button.addEventListener("click", incrementId);
+const startButton = document.getElementById("startButton");
+startButton.addEventListener("click", function() {
+startButton.classList.add('hidden');
+setupPlayers();
+setupPlayers();
+});
 
 const diceButton = document.getElementById("diceButton");
 diceButton.addEventListener("click", rollDice);
