@@ -3,64 +3,13 @@ include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body-start.php';
 ?>
 
-<head>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="scripts/script.js" defer></script>
-    <meta charset="UTF-8">
-    <title>Ganzenbord</title>
-</head>
-
-<body>
-    <div class="container">
-        <h1>GANZENBORD</h1>
-        <div class="upperrow">
-            <div class="addplayer">
-                <button id="startButton">Zet het bord klaar!</button>
-                <div class="beurtDiv hidden" id="beurtDivWit">
-                    <h2>Het is de beurt van:</h2>
-                    <img class="beurtImg" src="img/goose1.png" alt="witte gans"></img>
-                </div>
-                <div class="beurtDiv hidden" id="beurtDivZwart">
-                    <h2>Het is de beurt van:</h2>
-                    <img class="beurtImg" src="img/goose2.png" alt="zwarte gans"></img>
-                </div>
-            </div>
-            <div>
-                <button id="diceButton">Dobbelen maar!</button>
-                <div id="outputDice"></div>
-            </div>
-            <div class="Turninfo">
-                <h2>
-                <div id="diced"></div>
-                </h2>
-                <h3>
-                <div id="special"></div>
-                </h3>
-            </div>
-        </div>
-    </div>
-<div class="legenda">
-        <div class="row1legenda">
-            <div class="box gans"></div>
-            <div class="meaning">Loop hetzelfde aantal nog eens.</div>
-            <div class="box brug"></div>
-            <div class="meaning">De brug brengt je naar 12.</div>
-            <div class="box dedood"></div>
-            <div class="meaning">Helaas, je bent dood. Begin helemaal opnieuw.</div>
-        </div>
-
-        <div class="row2legenda">
-            <div class="box herberg"></div>
-            <div class="meaning">Je overnacht een nachtje in de herberg. Sla een beurt over.</div>
-            <div class="box doornstruik"></div>
-            <div class="meaning">De doornstruik prikkelt je terug naar 37.</div>
-            <div class="box opnieuwgooien"></div>
-            <div class="meaning">Gooi nog eens.</div>
-        </div>
+<div class="mainrow title">
+<h1>GANZENBORD</h1>
 </div>
 
-<div class="gamebox">
+<div class="row">
+    <div class="column col-8">
+        <div class="boardbox">
         <div class="row row1">
             <div class="box"></div>
             <div class="box"></div>
@@ -381,6 +330,56 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
         </div>
+        </div>
+    </div>
+    <div class="column col-4">
+        <div class="column side">
+            <div class="addplayer">
+                <button id="startButton">Zet het bord klaar!</button>
+                <div class="beurtDiv hidden" id="beurtDivWit">
+                    <h2>Het is de beurt van:</h2>
+                    <img class="beurtImg" src="img/goose1.png" alt="witte gans"></img>
+                </div>
+                <div class="beurtDiv hidden" id="beurtDivZwart">
+                    <h2>Het is de beurt van:</h2>
+                    <img class="beurtImg" src="img/goose2.png" alt="zwarte gans"></img>
+                </div>
+            </div>
+        </div>
+        <div class="column side">
+            <button id="diceButton">DOBBELEN</button>
+            <div id="outputDice"></div>
+        </div>
+        <div class="column side">
+            <div class="Turninfo">
+                <h2>
+                    <div id="diced"></div>
+                </h2>
+                <h3>
+                    <div id="special"></div>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="legenda">
+    <div class="row1legenda">
+        <div class="box gans"></div>
+        <div class="meaning">Loop hetzelfde aantal nog eens.</div>
+        <div class="box brug"></div>
+        <div class="meaning">De brug brengt je naar 12.</div>
+        <div class="box dedood"></div>
+        <div class="meaning">Helaas, je bent dood. Begin helemaal opnieuw.</div>
+    </div>
+    <div class="row2legenda">
+        <div class="box herberg"></div>
+        <div class="meaning">Je overnacht een nachtje in de herberg. Sla een beurt over.</div>
+        <div class="box doornstruik"></div>
+        <div class="meaning">De doornstruik prikkelt je terug naar 37.</div>
+        <div class="box opnieuwgooien"></div>
+        <div class="meaning">Gooi nog eens.</div>
+    </div>
+</div>
 
     <?php
     include __DIR__ . '/tpl/body-end.php';
