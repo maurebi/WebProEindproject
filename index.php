@@ -61,35 +61,35 @@ include __DIR__ . '/tpl/body-start.php';
         </div>
         <div class="row row3">
             <div class="box"></div>
-            <div id="19" class="box board herberg"><p class="number">19</p></div>
+            <div id="19" class="box board herberg"><img src="img/herberg.png"><p class="number">19</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div id="22" class="box board"><p class="number">22</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div id="25" class="box board"><p class="number">25</p></div>
-            <div id="26" class="box board opnieuwgooien"><p class="number">26</p></div>
+            <div id="26" class="box board opnieuwgooien"><img src="img/flower.png"><p class="number">26</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
             <div id="44" class="box board"><p class="number">44</p></div>
-            <div id="45" class="box board gans"><p class="number">45</p></div>
+            <div id="45" class="box board gans"><img src="img/graspatch.png"><p class="number">45</p></div>
             <div id="46" class="box board"><p class="number">46</p></div>
             <div class="box"></div>
             <div class="box"></div>
         </div>
         <div class="row row4">
             <div class="box"></div>
-            <div id="18" class="box board gans"><p class="number">18</p></div>
+            <div id="18" class="box board gans"><img src="img/graspatch.png"><p class="number">18</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="23" class="box board gans"><p class="number">23</p></div>
+            <div id="23" class="box board gans"><img src="img/graspatch.png"><p class="number">23</p></div>
             <div id="24" class="box board"><p class="number">24</p></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="27" class="box board gans"><p class="number">27</p></div>
+            <div id="27" class="box board gans"><img src="img/graspatch.png"><p class="number">27</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div id="43" class="box board"><p class="number">43</p></div>
@@ -111,7 +111,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div id="28" class="box board"><p class="number">28</p></div>
             <div class="box"></div>
-            <div id="42" class="box board doornstruik"><p class="number">42</p></div>
+            <div id="42" class="box board doornstruik"><img src="img/thornbush.png"><p class="number">42</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -131,7 +131,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div id="29" class="box board"><p class="number">29</p></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="41" class="box board gans"><p class="number">41</p></div>
+            <div id="41" class="box board gans"><img src="img/graspatch.png"><p class="number">41</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -145,7 +145,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="14" class="box board gans"><p class="number">14</p></div>
+            <div id="14" class="box board gans"><img src="img/graspatch.png"><p class="number">14</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div id="30" class="box board"><p class="number">30</p></div>
@@ -155,7 +155,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div id="40" class="box board"><p class="number">40</p></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="50" class="box board gans"><p class="number">50</p></div>
+            <div id="50" class="box board gans"><img src="img/graspatch.png"><p class="number">50</p></div>
             <div class="box"></div>
             <div class="box"></div>
         </div>
@@ -167,7 +167,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div id="13" class="box board"><p class="number">13</p></div>
             <div class="box"></div>
-            <div id="31" class="box board herberg"><p class="number">31</p></div>
+            <div id="31" class="box board herberg"><img src="img/herberg.png"><p class="number">31</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -187,7 +187,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div id="12" class="box board"><p class="number">12</p></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="32" class="box board gans"><p class="number">32</p></div>
+            <div id="32" class="box board gans"><img src="img/graspatch.png"><p class="number">32</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -196,12 +196,12 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="52" class="box board herberg"><p class="number">52</p></div>
+            <div id="52" class="box board herberg"><img src="img/herberg.png"><p class="number">52</p></div>
             <div class="box"></div>
         </div>
         <div class="row row10">
             <div class="box"></div>
-            <div id="9" class="box board gans"><p class="number">9</p></div>
+            <div id="9" class="box board gans"><img src="img/graspatch.png"><p class="number">9</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -216,7 +216,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="53" class="box board opnieuwgooien"><p class="number">53</p></div>
+            <div id="53" class="box board opnieuwgooien"><img src="img/flower.png"><p class="number">53</p></div>
             <div class="box"></div>
         </div>
         <div class="row row11">
@@ -230,21 +230,21 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div id="34" class="box board"><p class="number">34</p></div>
             <div id="35" class="box board"><p class="number">35</p></div>
-            <div id="36" class="box board gans"><p class="number">36</p></div>
+            <div id="36" class="box board gans"><img src="img/graspatch.png"><p class="number">36</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="54" class="box board gans"><p class="number">54</p></div>
+            <div id="54" class="box board gans"><img src="img/graspatch.png"><p class="number">54</p></div>
             <div class="box"></div>
         </div>
         <div class="row row12">
             <div class="box"></div>
             <div class="box"></div>
             <div id="7" class="box board"><p class="number">7</p></div>
-            <div id="6" class="box board brug"><p class="number">6</p></div>
-            <div id="5" class="box board gans"><p class="number">5</p></div>
+            <div id="6" class="box board brug"><img src="img/bridge.png"><p class="number">6</p></div>
+            <div id="5" class="box board gans"><img src="img/graspatch.png"><p class="number">5</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -313,8 +313,8 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
             <div id="60" class="box board"><p class="number">60</p></div>
-            <div id="59" class="box board gans"><p class="number">59</p></div>
-            <div id="58" class="box board dedood"><p class="number">58</p></div>
+            <div id="59" class="box board gans"><img src="img/graspatch.png"><p class="number">59</p></div>
+            <div id="58" class="box board dedood"><img src="img/thumbstone.png"><p class="number">58</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -372,19 +372,19 @@ include __DIR__ . '/tpl/body-start.php';
 </div>
 <div class="row legenda">
     <div class="column col-6 row1legenda">
-        <div class="box gans"></div>
+        <div class="box gans"><img src="img/graspatch.png"></div>
         <div class="meaning">Loop hetzelfde aantal nog eens.</div>
-        <div class="box brug"></div>
+        <div class="box brug"><img src="img/bridge.png"></div>
         <div class="meaning">De brug brengt je naar 12.</div>
-        <div class="box dedood"></div>
+        <div class="box dedood"><img src="img/thumbstone.png"></div>
         <div class="meaning">Helaas, je bent dood. Begin helemaal opnieuw.</div>
     </div>
     <div class="column col-6 row2legenda">
-        <div class="box herberg"></div>
+        <div class="box herberg"><img src="img/herberg.png"></div>
         <div class="meaning">Je overnacht een nachtje in de herberg. Sla een beurt over.</div>
-        <div class="box doornstruik"></div>
+        <div class="box doornstruik"><img src="img/thornbush.png"></div>
         <div class="meaning">De doornstruik prikkelt je terug naar 37.</div>
-        <div class="box opnieuwgooien"></div>
+        <div class="box opnieuwgooien"><img src="img/flower.png"></div>
         <div class="meaning">Gooi nog eens.</div>
     </div>
 </div>

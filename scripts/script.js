@@ -154,7 +154,6 @@ function renderPlayerPositions() {
         console.log(player);
         let boxId = player.position;
         let boxElement = document.getElementById(boxId);
-
         let playerElement = document.createElement('img');
         playerElement.className = "player";
         if (player.color == "White") {
