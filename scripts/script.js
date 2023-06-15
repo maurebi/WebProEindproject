@@ -193,133 +193,115 @@ function printTurn(){
 }
 
 function geese(currentPlayer, diceValue) {
-    currentPlayer.position += diceValue;
+  currentPlayer.position += diceValue;
+  savePlayerData(currentPlayer);
 }
 
 
 function rollDice() {
-    // Roll the dice
-    let diceValue = printDice();
+  // Roll the dice
+  let diceValue = printDice();
+  // Display the dice value
+  console.log('Dice value:', diceValue);
+  // Update the current player's position based on the dice roll
+  let currentPlayer = players[currentPlayerIndex];
+  currentPlayer.position += diceValue;
+  //   for printing special actions
+  let SpecialActionText = document.getElementById("special")
+  // handle the dice again boxes
+  if (currentPlayer.position == 26 || currentPlayer.position == 53) {
+      currentPlayerIndex = currentPlayerIndex
+  } else {
+      // Increment the current player index for the next turn
+      currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+  }
 
+  // the player has to get to 64 exact
+  if (currentPlayer.position > 64) {
+      let extra = currentPlayer.position - 64;
+      currentPlayer.position = 64 - extra;
+      SpecialActionText.innerHTML = "Je moet exact 64 halen!"
+  }
+  if (currentPlayer.position == 64) {
+      let win = currentPlayer.color
+      alert(win + ' heeft gewonnen!')
+  }
+  // handle special boxes
+  // gans -> forward the dice value again
+  if (currentPlayer.position == 5 || currentPlayer.position == 9 || currentPlayer.position == 14 || currentPlayer.position == 18 ||
+      currentPlayer.position == 23 || currentPlayer.position == 27 || currentPlayer.position == 32 || currentPlayer.position == 36 ||
+      currentPlayer.position == 41 || currentPlayer.position == 45 || currentPlayer.position == 50 || currentPlayer.position == 54 ||
+      currentPlayer.position == 59) {
+      // // adds delay
+      setTimeout(() => {
+        geese(currentPlayer, diceValue);
+      }, 300);
 
-    // Display the dice value
-    console.log('Dice value:', diceValue);
+      if (currentPlayer.color == "Wit") {
+          SpecialActionText.innerHTML = "Wit mocht hetzelfde aantal nog eens lopen!";
+      } else if (currentPlayer.color == "Zwart") {
+          SpecialActionText.innerHTML = "Zwart mocht hetzelfde aantal nog eens lopen!";
+      }
+  }
+  // doornstruik -> from box 42 to 37
+  else if (currentPlayer.position == 42) {
+      // adds delay
+      setTimeout(() => {
+        currentPlayer.position += -5;
+        savePlayerData(currentPlayer);
+      }, 300);
 
+      
+      if (currentPlayer.color == "Wit") {
+          SpecialActionText.innerHTML = "Wit is terruggeprikkeld naar 37 door de doornstruik!";
+      } else if (currentPlayer.color == "Zwart") {
+          SpecialActionText.innerHTML = "Zwart is terruggeprikkeld naar 37 door de doornstruik!";
+      }
+  }
+  //  brug -> from box 6 to 12
+  else if (currentPlayer.position == 6) {
+      // adds delay
+      setTimeout(() => {
+        currentPlayer.position += 6;
+        savePlayerData(currentPlayer);
+      }, 300);
 
-    // Update the current player's position based on the dice roll
-    let currentPlayer = players[currentPlayerIndex];
-    currentPlayer.position += diceValue;
+      if (currentPlayer.color == "Wit") {
+          SpecialActionText.innerHTML = "Wit heeft de brug genomen naar 12!";
+      } else if (currentPlayer.color == "Zwart") {
+          SpecialActionText.innerHTML = "Zwart heeft de brug genomen naar 12!";
+      }
+  }
+  // de dood -> from box 58 to the start
+  else if (currentPlayer.position == 58) {
+      // adds delay
+      setTimeout(() => {
+        currentPlayer.position += -58;
+        savePlayerData(currentPlayer);
+      }, );
 
-
-    //   for printing special actions
-    let SpecialActionText = document.getElementById("special")
-
-
-    // handle the dice again boxes
-    if (currentPlayer.position == 26 || currentPlayer.position == 53) {
-        currentPlayerIndex = currentPlayerIndex
-    } else {
-        // Increment the current player index for the next turn
-        currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
-    }
-
-
-    // the player has to get to 64 exact
-    if (currentPlayer.position > 64) {
-        let extra = currentPlayer.position - 64;
-        currentPlayer.position = 64 - extra;
-        SpecialActionText.innerHTML = "Je moet exact 64 halen!"
-    }
-
-
-    if (currentPlayer.position == 64) {
-        let win = currentPlayer.color
-        alert(win + ' heeft gewonnen!')
-    }
-
-
-    // Save and sync the player data
-    savePlayerData(currentPlayer);
-
-
-    // handle special boxes
-
-
-    // gans -> forward the dice value again
-    if (currentPlayer.position == 5 || currentPlayer.position == 9 || currentPlayer.position == 14 || currentPlayer.position == 18 ||
-        currentPlayer.position == 23 || currentPlayer.position == 27 || currentPlayer.position == 32 || currentPlayer.position == 36 ||
-        currentPlayer.position == 41 || currentPlayer.position == 45 || currentPlayer.position == 50 || currentPlayer.position == 54 ||
-        currentPlayer.position == 59) {
-        // // adds delay
-        setTimeout(geese(currentPlayer, diceValue), 900000);
-        setTimeout(savePlayerData(currentPlayer), 900000);
-        if (currentPlayer.color == "Wit") {
-            SpecialActionText.innerHTML = "Wit mocht hetzelfde aantal nog eens lopen!";
-        } else if (currentPlayer.color == "Zwart") {
-            SpecialActionText.innerHTML = "Zwart mocht hetzelfde aantal nog eens lopen!";
-        }
-    }
-
-
-    // doornstruik -> from box 42 to 37
-    else if (currentPlayer.position == 42) {
-        // adds delay
-        setTimeout((currentPlayer.position += -5), 900000);
-        setTimeout(savePlayerData(currentPlayer), 900000);
-        if (currentPlayer.color == "Wit") {
-            SpecialActionText.innerHTML = "Wit is terruggeprikkeld naar 37 door de doornstruik!";
-        } else if (currentPlayer.color == "Zwart") {
-            SpecialActionText.innerHTML = "Zwart is terruggeprikkeld naar 37 door de doornstruik!";
-        }
-    }
-
-
-    //  brug -> from box 6 to 12
-    else if (currentPlayer.position == 6) {
-        // adds delay
-        setTimeout((currentPlayer.position += 6), 900000);
-        setTimeout(savePlayerData(currentPlayer), 900000);
-        if (currentPlayer.color == "Wit") {
-            SpecialActionText.innerHTML = "Wit heeft de brug genomen naar 12!";
-        } else if (currentPlayer.color == "Zwart") {
-            SpecialActionText.innerHTML = "Zwart heeft de brug genomen naar 12!";
-        }
-    }
-
-
-    // de dood -> from box 58 to the start
-    else if (currentPlayer.position == 58) {
-        // adds delay
-        setTimeout((currentPlayer.position += -58), 900000);
-        setTimeout(savePlayerData(currentPlayer));
-        if (currentPlayer.color == "Wit") {
-            SpecialActionText.innerHTML = "Wit is dood! Wit moet terug naar start.";
-        } else if (currentPlayer.color == "Zwart") {
-            SpecialActionText.innerHTML = "Zwart is dood! Zwart moet terug naar start.";
-        }
-    } else if (currentPlayer.position == 26 || currentPlayer.position == 53) {
-        if (currentPlayer.color == "Wit") {
-            SpecialActionText.innerHTML = "Wit mag nog een keer gooien!";
-        } else if (currentPlayer.color == "Zwart") {
-            SpecialActionText.innerHTML = "Zwart mag nog een keer gooien!";
-        }
-    } else {
-        if (currentPlayer.color == "Wit") {
-            SpecialActionText.innerHTML = "Wit staat op een doodnormaal vakje!";
-        } else if (currentPlayer.color == "Zwart") {
-            SpecialActionText.innerHTML = "Zwart staat op een doodnormaal vakje!";
-        }
-
-
-
-
-    }
-
-    // Save and sync the player data
-    savePlayerData(currentPlayer);
-
-    // Print current turn
-    let CurrentTurn = printTurn();
+      if (currentPlayer.color == "Wit") {
+          SpecialActionText.innerHTML = "Wit is dood! Wit moet terug naar start.";
+      } else if (currentPlayer.color == "Zwart") {
+          SpecialActionText.innerHTML = "Zwart is dood! Zwart moet terug naar start.";
+      }
+  } else if (currentPlayer.position == 26 || currentPlayer.position == 53) {
+      if (currentPlayer.color == "Wit") {
+          SpecialActionText.innerHTML = "Wit mag nog een keer gooien!";
+      } else if (currentPlayer.color == "Zwart") {
+          SpecialActionText.innerHTML = "Zwart mag nog een keer gooien!";
+      }
+  } else {
+      if (currentPlayer.color == "Wit") {
+          SpecialActionText.innerHTML = "Wit staat op een doodnormaal vakje!";
+      } else if (currentPlayer.color == "Zwart") {
+          SpecialActionText.innerHTML = "Zwart staat op een doodnormaal vakje!";
+      }
+  }
+  // Save and sync the player data
+  savePlayerData(currentPlayer);
+  // Print current turn
+  let CurrentTurn = printTurn();
 
 
 }
