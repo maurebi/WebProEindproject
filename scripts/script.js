@@ -147,8 +147,6 @@ function setupPlayers() {
   savePlayerData(player);
   // Display the player object
   console.log('New player:', player);
-  let nexPlayeroutput = document.getElementById("beurt")
-  nexPlayeroutput.innerHTML = "Het is de beurt van speler 1!";
 }
 
 
@@ -208,26 +206,40 @@ function rollDice() {
   currentPlayer.position += diceValue;
 
     //   handle special boxes
+    let SpecialActionText = document.getElementById("special")
 
     //  brug -> from box 6 to 12
     if (currentPlayer.position == 6){
         // print hier current player voor even
+        if (currentPlayer.color == "Wit"){
+            SpecialActionText.innerHTML = "Wit heeft de brug genomen naar 12!";}
+        else if (currentPlayer.color == "Zwart"){
+            SpecialActionText.innerHTML = "Zwart heeft de brug genomen naar 12!";}
         currentPlayer.position += 6;
-    }
-
-    // doornstruik -> from box 42 to 37
-    if (currentPlayer.position == 42){
+    } else if (currentPlayer.position == 42){
+        // doornstruik -> from box 42 to 37
         // print hier current player voor even
+        if (currentPlayer.color == "Wit"){
+            SpecialActionText.innerHTML = "Wit is terruggeprikkeld naar 37 door de doornstruik!";}
+        else if (currentPlayer.color == "Zwart"){
+            SpecialActionText.innerHTML = "Zwart is terruggeprikkeld naar 37 door de doornstruik!";}
         currentPlayer.position += -5;
-    }
-
-    // gans -> forward the dice value again
-    if (currentPlayer.position == 5 || currentPlayer.position == 9 || currentPlayer.position == 14 || currentPlayer.position == 18 ||
+    } else if (currentPlayer.position == 5 || currentPlayer.position == 9 || currentPlayer.position == 14 || currentPlayer.position == 18 ||
         currentPlayer.position == 23 || currentPlayer.position == 27 || currentPlayer.position == 32 || currentPlayer.position == 36 ||
         currentPlayer.position == 41 || currentPlayer.position == 45 || currentPlayer.position == 50 || currentPlayer.position == 54 ||
         currentPlayer.position == 59) {
+        // gans -> forward the dice value again
+        if (currentPlayer.color == "Wit"){
+            SpecialActionText.innerHTML = "Wit mocht hetzelfde aantal nog eens lopen!";}
+        else if (currentPlayer.color == "Zwart"){
+            SpecialActionText.innerHTML = "Zwart mocht hetzelfde aantal nog eens lopen!";}
         // print hier current player voor even
         currentPlayer.position += diceValue;
+    } else {
+        if (currentPlayer.color == "Wit"){
+            SpecialActionText.innerHTML = "Wit staat op een doodnormaal vakje!";}
+        else if (currentPlayer.color == "Zwart"){
+            SpecialActionText.innerHTML = "Zwart staat op een doodnormaal vakje!";}
     }
 
     // dice again
