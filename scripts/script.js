@@ -183,8 +183,6 @@ function printTurn(){
     let beurtDivWit = document.getElementById("beurtDivWit");
     let beurtDivZwart = document.getElementById("beurtDivZwart");
 
-    nextPlayeroutput.innerHTML = nextPlayer+" is aan de beurt!";
-
     if (nextPlayer === "Wit") {
       beurtDivWit.classList.remove("hidden");
       beurtDivZwart.classList.add("hidden");

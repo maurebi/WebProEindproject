@@ -96,6 +96,11 @@ button{
     background-color: #fff3b0;
 }
 
+.start {
+    background-color: darkslategrey;
+    color: white;
+}
+
 .gans {
     background-color: #fe7f2d;
 }
