@@ -4,7 +4,7 @@ include __DIR__ . '/tpl/body-start.php';
 ?>
 
 <div class="mainrow title">
-<h1>GANZENBORD</h1>
+    <h1>GANZENBORD</h1>
 </div>
 
 <div class="row">
@@ -338,11 +338,11 @@ include __DIR__ . '/tpl/body-start.php';
                 <button id="startButton">Zet het bord klaar!</button>
                 <div class="beurtDiv hidden" id="beurtDivWit">
                     <h2>Het is de beurt van:</h2>
-                    <img class="beurtImg" src="img/goose1.png" alt="witte gans"></img>
+                    <img class="beurtImg" src="img/goose1.png" alt="witte gans">
                 </div>
                 <div class="beurtDiv hidden" id="beurtDivZwart">
                     <h2>Het is de beurt van:</h2>
-                    <img class="beurtImg" src="img/goose2.png" alt="zwarte gans"></img>
+                    <img class="beurtImg" src="img/goose2.png" alt="zwarte gans">
                 </div>
             </div>
         </div>
@@ -353,17 +353,17 @@ include __DIR__ . '/tpl/body-start.php';
         <div class="column side">
             <div class="Turninfo">
                 <h2>
-                    <div id="diced"></div>
+                    <div id="diced"> </div>
                 </h2>
                 <h3>
-                    <div id="special"></div>
+                    <div id="special"> </div>
                 </h3>
             </div>
         </div>
     </div>
 </div>
-<div class="legenda">
-    <div class="row1legenda">
+<div class="row legenda">
+    <div class="column col-6 row1legenda">
         <div class="box gans"></div>
         <div class="meaning">Loop hetzelfde aantal nog eens.</div>
         <div class="box brug"></div>
@@ -371,7 +371,7 @@ include __DIR__ . '/tpl/body-start.php';
         <div class="box dedood"></div>
         <div class="meaning">Helaas, je bent dood. Begin helemaal opnieuw.</div>
     </div>
-    <div class="row2legenda">
+    <div class="column col-6 row2legenda">
         <div class="box herberg"></div>
         <div class="meaning">Je overnacht een nachtje in de herberg. Sla een beurt over.</div>
         <div class="box doornstruik"></div>
