@@ -210,6 +210,60 @@ function savePlayerMove(currentPlayer) {
   });
 }
 
+function specialEvents(currentPlayer, diceValue){
+  // geese box -> forward dice value again
+  if (currentPlayer.position == 5 || currentPlayer.position == 9 ||
+      currentPlayer.position == 14 || currentPlayer.position == 18 ||
+      currentPlayer.position == 23 || currentPlayer.position == 27 ||
+      currentPlayer.position == 32 || currentPlayer.position == 36 ||
+      currentPlayer.position == 41 || currentPlayer.position == 45 ||
+      currentPlayer.position == 50 || currentPlayer.position == 54 ||
+      currentPlayer.position == 59) {
+      // Perform the special action
+      currentPlayer.position += diceValue;
+      let specialActionText = document.getElementById("special");
+      specialActionText.innerHTML = currentPlayer.color + " mocht hetzelfde aantal nog eens lopen!";
+  //     recursion, for if a player lands on a special box twice in a row
+  //     hier moet delay komen
+      specialEvents(currentPlayer, diceValue)
+  // doornstruik -> from box 42 to 37
+  } else if (currentPlayer.position == 42) {
+      // Perform the special action
+      currentPlayer.position -= 5;
+
+      let specialActionText = document.getElementById("special");
+      specialActionText.innerHTML = currentPlayer.color + " is teruggeprikkeld naar 37 door de doornstruik!";
+  //  brug -> from box 6 to 12
+  } else if (currentPlayer.position == 6) {
+      // Perform the special action
+      currentPlayer.position += 6;
+
+      let specialActionText = document.getElementById("special");
+      specialActionText.innerHTML = currentPlayer.color + " heeft de brug genomen naar 12!";
+  // de dood -> from box 58 to the start
+  } else if (currentPlayer.position == 58) {
+      // Perform the special action
+      currentPlayer.position -= 58;
+      let specialActionText = document.getElementById("special");
+      specialActionText.innerHTML = currentPlayer.color + " is dood! " + currentPlayer.color + " moet terug naar start.";
+  // dice again box
+  } else if (currentPlayer.position == 26 || currentPlayer.position == 53) {
+      let specialActionText = document.getElementById("special");
+      specialActionText.innerHTML = currentPlayer.color + " moet 4 stappen naar achteren!";
+      currentPlayer.position -= 4;
+  // handle that the winner has to get to 64 exactly
+  } else if (currentPlayer.position > 64) {
+      // let extra = currentPlayer.position - 64;
+      // currentPlayer.position = 64 - extra;
+      let specialActionText = document.getElementById("special");
+      specialActionText.innerHTML = currentPlayer.color + " ,je moet exact 64 halen!";
+  }
+  else {
+      let specialActionText = document.getElementById("special");
+      specialActionText.innerHTML = currentPlayer.color + " staat op een doodnormaal vakje!";
+  }
+}
+
 
 
 // Function to delay execution
@@ -233,56 +287,26 @@ async function rollDice() {
     // Handle special boxes after a delay
   await delay(300);
     // Perform special actions based on the player's position
-  if (
-    currentPlayer.position == 5 ||
-    currentPlayer.position == 9 ||
-    currentPlayer.position == 14 ||
-    currentPlayer.position == 18 ||
-    currentPlayer.position == 23 ||
-    currentPlayer.position == 27 ||
-    currentPlayer.position == 32 ||
-    currentPlayer.position == 36 ||
-    currentPlayer.position == 41 ||
-    currentPlayer.position == 45 ||
-    currentPlayer.position == 50 ||
-    currentPlayer.position == 54 ||
-    currentPlayer.position == 59
-  ) {
-    // Perform the special action
-    currentPlayer.position += diceValue;
-      let specialActionText = document.getElementById("special");
-    specialActionText.innerHTML =
-      currentPlayer.color + " mocht hetzelfde aantal nog eens lopen!";
-  } else if (currentPlayer.position == 42) {
-    // Perform the special action
-    currentPlayer.position -= 5;
-      let specialActionText = document.getElementById("special");
-    specialActionText.innerHTML =
-      currentPlayer.color + " is teruggeprikkeld naar 37 door de doornstruik!";
-  } else if (currentPlayer.position == 6) {
-    // Perform the special action
-    currentPlayer.position += 6;
-      let specialActionText = document.getElementById("special");
-    specialActionText.innerHTML = currentPlayer.color + " heeft de brug genomen naar 12!";
-  } else if (currentPlayer.position == 58) {
-    // Perform the special action
-    currentPlayer.position -= 58;
-      let specialActionText = document.getElementById("special");
-    specialActionText.innerHTML =
-      currentPlayer.color + " is dood! " + currentPlayer.color + " moet terug naar start.";
-  } else if (currentPlayer.position == 26 || currentPlayer.position == 53) {
-    let specialActionText = document.getElementById("special");
-    specialActionText.innerHTML = currentPlayer.color + " mag nog een keer gooien!";
-  } else {
-    let specialActionText = document.getElementById("special");
-    specialActionText.innerHTML = currentPlayer.color + " staat op een doodnormaal vakje!";
-  }
-    // Check if the player has reached the winning position
-  if (currentPlayer.position >= 64) {
-    let specialActionText = document.getElementById("special");
-    specialActionText.innerHTML = currentPlayer.color + " heeft gewonnen!";
-    diceButton.disabled = true;
-  }
+    await delay(300);
+    specialEvents(currentPlayer, diceValue)
+
+    // handle the finish
+    if (currentPlayer.position == 64) {
+        let specialActionText = document.getElementById("special");
+        specialActionText.innerHTML = currentPlayer.color + " heeft gewonnen!";
+        diceButton.disabled = true;
+        // Send user to winning screen
+        location.replace("winner.php")
+        let currentPlayer = players[currentPlayerIndex];
+
+        // Print who won
+        let winnerText = document.getElementById("winner");
+        winnerText.innerHTML = currentPlayer.color + " heeft gewonnen!";
+    }
+    if (currentPlayer.position > 64) {
+        let extra = currentPlayer.position - 64;
+        currentPlayer.position = 64 - extra;}
+  
   console.log(currentPlayer.move)
   savePlayerMove(currentPlayer); 
 
