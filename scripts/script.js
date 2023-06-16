@@ -251,7 +251,8 @@ function specialEvents(currentPlayer, diceValue){
     // dice again box
     } else if (currentPlayer.position == 26 || currentPlayer.position == 53) {
         let specialActionText = document.getElementById("special");
-        specialActionText.innerHTML = currentPlayer.color + " mag nog een keer gooien!";
+        specialActionText.innerHTML = currentPlayer.color + " moet 4 stappen naar achteren!";
+        currentPlayer.position -= 4;
     // handle that the winner has to get to 64 exactly
     } else if (currentPlayer.position > 64) {
         // let extra = currentPlayer.position - 64;
