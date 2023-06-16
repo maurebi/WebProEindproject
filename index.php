@@ -366,6 +366,9 @@ include __DIR__ . '/tpl/body-start.php';
                 <h3>
                     <div id="special"> </div>
                 </h3>
+                <form method="post" action="php/reset_session.php">
+                    <button type="submit">Reset Session</button>
+                </form>
             </div>
         </div>
     </div>

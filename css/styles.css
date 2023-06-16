@@ -39,6 +39,10 @@
     border: 1px solid black;
 }
 
+.side{
+    align-content: center;
+}
+
 .beurtImg {
     height: 100px;
     width: auto;
@@ -80,9 +84,10 @@
 }
 
 #outputDice {
-    width:80px;
-    height:80px;
-    padding-left: 42%;
+    width:120px;
+    height:120px;
+    padding: 20px;
+    text-align: center;
 }
 
 img {
