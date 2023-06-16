@@ -68,7 +68,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
             <div id="25" class="box board"><p class="number">25</p></div>
-            <div id="26" class="box board opnieuwgooien"><img src="img/flower.png" alt="pixel art of flower"><p class="number">26</p></div>
+            <div id="26" class="box board achteruit"><img src="img/flower.png" alt="pixel art of flower"><p class="number">26</p></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
@@ -216,7 +216,7 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
-            <div id="53" class="box board opnieuwgooien"><img src="img/flower.png" alt="pixel art of flower"><p class="number">53</p></div>
+            <div id="53" class="box board achteruit"><img src="img/flower.png" alt="pixel art of flower"><p class="number">53</p></div>
             <div class="box"></div>
         </div>
         <div class="row row11">
