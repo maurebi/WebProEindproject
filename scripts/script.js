@@ -147,7 +147,7 @@ function parsePlayerData(data) {
 
 // Function to render player positions
 function renderPlayerPositions() {
-    $('.box').children('img').remove();
+    // $('.box').children('img').remove();
     console.log(players);
 
     players.forEach(function(player) {
