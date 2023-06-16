@@ -59,12 +59,12 @@
     color: white;
 }
 
-.start.left{
+.left{
     border-right: 0;
     width: 45px;
 }
 
-.start.right{
+.right{
     border-left: 0;
     width: 45px;
 }
@@ -123,6 +123,11 @@ button{
 
 .opnieuwgooien {
     background-color: #9e2a2b;
+}
+
+.finish {
+    background-color: darkslategrey;
+    color: white;
 }
 
 .legenda {

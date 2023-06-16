@@ -1,10 +1,19 @@
 <?php
+// Start the session
+session_start();
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body-start.php';
 ?>
 
+<?php include '/php/join_session.php'; ?>
+
 <div class="mainrow title">
     <h1>GANZENBORD</h1>
+    <form id="playerForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label for="player_name">Player Name:</label>
+        <input type="text" id="player_name" name="player_name">
+        <button id="nameButton" type="submit">Join</button>
+    </form>
 </div>
 
 <div class="row">
@@ -244,8 +253,8 @@ include __DIR__ . '/tpl/body-start.php';
             <div class="box"></div>
             <div class="box"></div>
             <div id="63" class="box board"><p class="number">63</p></div>
-            <div id="64" class="box board start left"><p class="number">64</p></div>
-            <div class="box board start right"></div>
+            <div id="64" class="box board finish left"><p class="number">64</p></div>
+            <div class="box board finish right"></div>
             <div class="box"></div>
             <div id="55" class="box board"><p class="number">55</p></div>
             <div class="box"></div>
@@ -334,9 +343,8 @@ include __DIR__ . '/tpl/body-start.php';
     </div>
     <div class="column col-4">
         <div class="column side">
-            <div class="addplayer">
-                <button id="startButton">Zet het bord klaar!</button>
-                <div class="beurtDiv hidden" id="beurtDivWit">
+            <div class="turn">
+                <div class="beurtDiv" id="beurtDivWit">
                     <h2>Het is de beurt van:</h2>
                     <img class="beurtImg" src="img/goose1.png" alt="witte gans">
                 </div>
@@ -380,6 +388,9 @@ include __DIR__ . '/tpl/body-start.php';
         <div class="meaning">Gooi nog eens.</div>
     </div>
 </div>
+<form method="post" action="php/reset_session.php">
+  <button type="submit">Reset Session</button>
+</form>
 
     <?php
     include __DIR__ . '/tpl/body-end.php';
