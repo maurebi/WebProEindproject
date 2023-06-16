@@ -388,9 +388,7 @@ include __DIR__ . '/tpl/body-start.php';
         <div class="meaning">Gooi nog eens.</div>
     </div>
 </div>
-<form method="post" action="php/reset_session.php">
-  <button type="submit">Reset Session</button>
-</form>
+  <button onclick="resetSession()">Reset Session</button>
 
     <?php
     include __DIR__ . '/tpl/body-end.php';
