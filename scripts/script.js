@@ -147,14 +147,13 @@ function parsePlayerData(data) {
 
 // Function to render player positions
 function renderPlayerPositions() {
-    // $('.box').children('img').remove();
+    $('.box').children('img').remove();
     console.log(players);
 
     players.forEach(function(player) {
         console.log(player);
         let boxId = player.position;
         let boxElement = document.getElementById(boxId);
-
         let playerElement = document.createElement('img');
         playerElement.className = "player";
         if (player.color == "White") {
