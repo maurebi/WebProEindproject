@@ -282,6 +282,10 @@ async function rollDice() {
         let specialActionText = document.getElementById("special");
         specialActionText.innerHTML = currentPlayer.color + " heeft gewonnen!";
         diceButton.disabled = true;
+        location.replace("winner.php")
+        let winnerText = document.getElementById("winner");
+        winnerText.innerHTML = currentPlayer.color + " heeft gewonnen!";
+
     }
 
     // Save and sync the player data
