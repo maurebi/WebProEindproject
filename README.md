@@ -1,7 +1,7 @@
 # Ganzenbord
 ## How to play:
 Fill in your browser your own IP-address, following by the path of where index.php is stored. For example: [IPaddress]/WP23/WebProGanzebord/index.php .
-Do the same thing in another browser with the same IP-address and you can fill in your name, start the game by pressing on the dice button and play against each other!
+Do the same thing in another browser with the same IP-address and you can both fill in your name, start the game by pressing on the dice button and play against each other!
 
 # Geese Plate
 
