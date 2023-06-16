@@ -1,1 +1,1 @@
-[{"id":1,"position":"25","name":"Player 1","score":0,"color":"White"},{"id":2,"position":"25","name":"Player 2","score":0,"color":"Black"}]
+[{"id":1,"position":"0","name":"Player 1","score":0,"color":"White","move":1},{"id":2,"position":"0","name":"Player 2","score":0,"color":"Black","move":0}]

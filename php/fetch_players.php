@@ -11,7 +11,7 @@ if (isset($_POST['id']) && isset($_POST['position'])) {
     $newPosition = $_POST['position'];
 
     // Iterate over the player data to find the matching player
-    foreach ($playerData as &$player) {
+    foreach ($playerData as $player) {
         if ($player['id'] == $playerId) {
             // Update the player's position
             $player['position'] = $newPosition;

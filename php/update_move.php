@@ -5,7 +5,7 @@ $jsonData = file_get_contents('../players.json');
 // Convert JSON data to PHP array
 $playerData = json_decode($jsonData, true);
 
-// Check if the updated position data is received from the client
+// Check if the updated position and move data is received from the client
 if (isset($_POST['id']) && isset($_POST['position'])) {
     $playerId = $_POST['id'];
     $newPosition = $_POST['position'];
@@ -13,7 +13,7 @@ if (isset($_POST['id']) && isset($_POST['position'])) {
     // Iterate over the player data to find the matching player
     foreach ($playerData as &$player) {
         if ($player['id'] == $playerId) {
-            // Update the player's position
+            // Update the player's position and move
             $player['position'] = $newPosition;
             break; // Exit the loop after finding the player
         }
