@@ -307,10 +307,8 @@ async function rollDice() {
         let extra = currentPlayer.position - 64;
         currentPlayer.position = 64 - extra;}
   
-  console.log(currentPlayer.move)
   savePlayerMove(currentPlayer); 
 
-  console.log(currentPlayer.move)
   savePlayerMove(currentPlayer); 
   currentPlayerIndex ++;
   if (currentPlayerIndex >= players.length) {
