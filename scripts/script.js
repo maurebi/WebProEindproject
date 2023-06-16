@@ -50,7 +50,7 @@ nameButton.addEventListener("click", function(event) {
 });
 
 
-  // Make an AJAX request to a PHP script that returns session data
+// Make an AJAX request to a PHP script that returns session data
 function fetchSessionData() {
     $.ajax({
       url: 'php/get_session_data.php',
@@ -105,34 +105,34 @@ function fetchPlayerData() {
 
 // Function to render player positions
 function renderPlayerPositions() {
-  $('.box').children('img').remove();
-  console.log(players);
+    $('.box').children('img').remove();
+    console.log(players);
 
-  players.forEach(function(player) {
-    console.log(player);
-    let boxId = player.position;
-    let boxElement = document.getElementById(boxId);
+    players.forEach(function(player) {
+        console.log(player);
+        let boxId = player.position;
+        let boxElement = document.getElementById(boxId);
+        let playerElement = document.createElement('img');
+        playerElement.setAttribute("id", "Playerimg");
+        playerElement.className = "player";
+        if (player.color == "White") {
+            playerElement.classList.add('marginWhite');
+            playerElement.src = "img/goose1.png";
+        } else if (player.color == "Black") {
+            playerElement.classList.add('marginBlack');
+            playerElement.src = "img/goose2.png";
+        }
 
-    let playerElement = document.createElement('img');
-    playerElement.className = "player";
-    if (player.color == "White") {
-      playerElement.classList.add('marginWhite');
-      playerElement.src = "img/goose1.png";
-    } else if (player.color == "Black") {
-      playerElement.classList.add('marginBlack');
-      playerElement.src = "img/goose2.png";
-    }
+        playerElement.alt = player.id;
 
-    playerElement.alt = player.id;
+        if (!boxElement.classList.contains('start')) {
+            playerElement.classList.add('marginTop');
+        }
 
-    if (!boxElement.classList.contains('start')) {
-      playerElement.classList.add('marginTop');
-    }
+        playerElement.id = 'player-' + player.id;
 
-    playerElement.id = 'player-' + player.id;
-
-    boxElement.appendChild(playerElement);
-  });
+        boxElement.appendChild(playerElement);
+    });
 }
 
 function checkTurn() {
@@ -172,15 +172,15 @@ const diceButton = document.getElementById("diceButton");
 diceButton.addEventListener("click", rollDice);
 
 function printDice() {
-  let out = document.getElementById("outputDice");
-  let diced = Math.floor(Math.random() * 6) + 1;
-  let image = "img/dice" + diced + ".png";
-  out.innerHTML = "<img src='" + image + "'/>";
+    let out = document.getElementById("outputDice");
+    let diced = Math.floor(Math.random() * 6) + 1;
+    let image = "img/dice" + diced + ".png";
+    out.innerHTML = "<img src='" + image + "'/>";
 
-  let dicedOutput = document.getElementById("diced");
-  dicedOutput.innerHTML = "Er is " + diced + " gegooid.";
+    let dicedOutput = document.getElementById("diced");
+    dicedOutput.innerHTML = "Er is " + diced + " gegooid.";
 
-  return diced;
+    return diced;
 }
 
 
@@ -214,7 +214,7 @@ function savePlayerMove(currentPlayer) {
 
 // Function to delay execution
 function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function rollDice() {
