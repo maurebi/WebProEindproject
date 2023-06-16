@@ -377,9 +377,9 @@ include __DIR__ . '/tpl/body-start.php';
     <div class="column col-6 row1legenda">
         <div class="box gans"><img src="img/graspatch.png" alt="pixel art of grasspatch"></div>
         <div class="meaning">Loop hetzelfde aantal nog eens.</div>
-        <div class="box brug"><img src="img/bridge.png" alt="pixel art of bridge></div>
+        <div class="box brug"><img src="img/bridge.png" alt="pixel art of bridge"></div>
         <div class="meaning">De brug brengt je naar 12.</div>
-        <div class="box dedood"><img src="img/thumbstone.png" alt="pixel art of thumbstone></div>
+        <div class="box dedood"><img src="img/thumbstone.png" alt="pixel art of thumbstone"></div>
         <div class="meaning">Helaas, je bent dood. Begin helemaal opnieuw.</div>
     </div>
     <div class="column col-6 row2legenda">
