@@ -130,6 +130,11 @@ button{
     color: white;
 }
 
+.finish {
+    background-color: darkslategrey;
+    color: white;
+}
+
 .legenda {
     width: 90%;
     border: 1px solid black;
