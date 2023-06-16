@@ -155,6 +155,7 @@ function renderPlayerPositions() {
         let boxId = player.position;
         let boxElement = document.getElementById(boxId);
         let playerElement = document.createElement('img');
+        playerElement.setAttribute("id", "Playerimg");
         playerElement.className = "player";
         if (player.color == "White") {
             playerElement.classList.add('marginWhite');
@@ -282,10 +283,13 @@ async function rollDice() {
         let specialActionText = document.getElementById("special");
         specialActionText.innerHTML = currentPlayer.color + " heeft gewonnen!";
         diceButton.disabled = true;
+        // Send user to winning screen
         location.replace("winner.php")
+        let currentPlayer = players[currentPlayerIndex];
+
+        // Print who won
         let winnerText = document.getElementById("winner");
         winnerText.innerHTML = currentPlayer.color + " heeft gewonnen!";
-
     }
 
     // Save and sync the player data

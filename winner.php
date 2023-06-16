@@ -12,7 +12,7 @@ include __DIR__ . '/tpl/body-start.php';
     <form id="playerForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label for="player_name">Player Name:</label>
         <input type="text" id="player_name" name="player_name">
-        <button id="nameButton" type="submit">Join</button>
+        <button id="nameButton" type="submit">MEEDOEN</button>
     </form>
 </div>
 
@@ -45,7 +45,7 @@ include __DIR__ . '/tpl/body-start.php';
                     <div id="special"> </div>
                 </h3>
                 <form method="post" action="php/reset_session.php">
-                    <button type="submit">Reset Session</button>
+                    <button type="submit">HERSTART BORD</button>
                 </form>
 
             </div>
@@ -56,9 +56,9 @@ include __DIR__ . '/tpl/body-start.php';
     <div class="column col-6 row1legenda">
         <div class="box gans"><img src="img/graspatch.png" alt="pixel art of grasspatch"></div>
         <div class="meaning">Loop hetzelfde aantal nog eens.</div>
-        <div class="box brug"><img src="img/bridge.png" alt="pixel art of bridge></div>
+        <div class="box brug"><img src="img/bridge.png" alt="pixel art of bridge"></div>
         <div class="meaning">De brug brengt je naar 12.</div>
-        <div class="box dedood"><img src="img/thumbstone.png" alt="pixel art of thumbstone></div>
+        <div class="box dedood"><img src="img/thumbstone.png" alt="pixel art of thumbstone"></div>
         <div class="meaning">Helaas, je bent dood. Begin helemaal opnieuw.</div>
     </div>
     <div class="column col-6 row2legenda">
