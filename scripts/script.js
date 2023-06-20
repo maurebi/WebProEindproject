@@ -105,8 +105,7 @@ function fetchPlayerData() {
 
 // Function to render player positions
 function renderPlayerPositions() {
-    $('.box').children('img').remove();
-    console.log(players);
+  $('.box').find('img').remove();
 
     players.forEach(function(player) {
         console.log(player);
@@ -210,57 +209,72 @@ function savePlayerMove(currentPlayer) {
   });
 }
 
-function specialEvents(currentPlayer, diceValue){
-  // geese box -> forward dice value again
-  if (currentPlayer.position == 5 || currentPlayer.position == 9 ||
-      currentPlayer.position == 14 || currentPlayer.position == 18 ||
-      currentPlayer.position == 23 || currentPlayer.position == 27 ||
-      currentPlayer.position == 32 || currentPlayer.position == 36 ||
-      currentPlayer.position == 41 || currentPlayer.position == 45 ||
-      currentPlayer.position == 50 || currentPlayer.position == 54 ||
-      currentPlayer.position == 59) {
-      // Perform the special action
-      currentPlayer.position += diceValue;
-      let specialActionText = document.getElementById("special");
-      specialActionText.innerHTML = currentPlayer.color + " mocht hetzelfde aantal nog eens lopen!";
-  //     recursion, for if a player lands on a special box twice in a row
-  //     hier moet delay komen
-      specialEvents(currentPlayer, diceValue)
-  // doornstruik -> from box 42 to 37
-  } else if (currentPlayer.position == 42) {
-      // Perform the special action
-      currentPlayer.position -= 5;
+async function specialEvents(currentPlayer, diceValue) {
+  let specialActionText = document.getElementById("special");
 
-      let specialActionText = document.getElementById("special");
-      specialActionText.innerHTML = currentPlayer.color + " is teruggeprikkeld naar 37 door de doornstruik!";
-  //  brug -> from box 6 to 12
-  } else if (currentPlayer.position == 6) {
-      // Perform the special action
-      currentPlayer.position += 6;
-
-      let specialActionText = document.getElementById("special");
-      specialActionText.innerHTML = currentPlayer.color + " heeft de brug genomen naar 12!";
-  // de dood -> from box 58 to the start
-  } else if (currentPlayer.position == 58) {
-      // Perform the special action
-      currentPlayer.position -= 58;
-      let specialActionText = document.getElementById("special");
-      specialActionText.innerHTML = currentPlayer.color + " is dood! " + currentPlayer.color + " moet terug naar start.";
-  // dice again box
-  } else if (currentPlayer.position == 26 || currentPlayer.position == 53) {
-      let specialActionText = document.getElementById("special");
-      specialActionText.innerHTML = currentPlayer.color + " moet 4 stappen naar achteren!";
-      currentPlayer.position -= 4;
-  // handle that the winner has to get to 64 exactly
-  } else if (currentPlayer.position > 64) {
-      // let extra = currentPlayer.position - 64;
-      // currentPlayer.position = 64 - extra;
-      let specialActionText = document.getElementById("special");
-      specialActionText.innerHTML = currentPlayer.color + " ,je moet exact 64 halen!";
+  while (
+    currentPlayer.position == 5 ||
+    currentPlayer.position == 9 ||
+    currentPlayer.position == 14 ||
+    currentPlayer.position == 18 ||
+    currentPlayer.position == 23 ||
+    currentPlayer.position == 27 ||
+    currentPlayer.position == 32 ||
+    currentPlayer.position == 36 ||
+    currentPlayer.position == 41 ||
+    currentPlayer.position == 45 ||
+    currentPlayer.position == 50 ||
+    currentPlayer.position == 54 ||
+    currentPlayer.position == 59
+  ) {
+    // geese box -> forward dice value again
+    currentPlayer.position += diceValue;
+    specialActionText.innerHTML =
+      currentPlayer.color + " mocht hetzelfde aantal nog eens lopen!";
+    savePlayerMove(currentPlayer)
+    await delay(300);
   }
-  else {
-      let specialActionText = document.getElementById("special");
-      specialActionText.innerHTML = currentPlayer.color + " staat op een doodnormaal vakje!";
+
+  if (currentPlayer.position == 42) {
+    // doornstruik -> from box 42 to 37
+    currentPlayer.position = 37;
+    specialActionText.innerHTML =
+      currentPlayer.color + " is teruggeprikkeld naar 37 door de doornstruik!";
+  } else if (currentPlayer.position == 6) {
+    // brug -> from box 6 to 12
+    currentPlayer.position = 12;
+    specialActionText.innerHTML =
+      currentPlayer.color + " heeft de brug genomen naar 12!";
+  } else if (currentPlayer.position == 58) {
+    // de dood -> from box 58 to the start
+    currentPlayer.position = 1;
+    specialActionText.innerHTML =
+      currentPlayer.color + " is dood! " + currentPlayer.color + " moet terug naar start.";
+  } else if (currentPlayer.position == 19 || currentPlayer.position == 31 || currentPlayer.position == 52) {
+    // 4 stappen terug
+    currentPlayer.position -= 3;
+    specialActionText.innerHTML =
+      currentPlayer.color + " moet 3 stappen naar achteren!";
+  } else if (currentPlayer.position > 64) {
+    let extra = currentPlayer.position - 64;
+    currentPlayer.position = 64 - extra;
+        // handle that the winner has to get to 64 exactly
+  specialActionText.innerHTML =
+  currentPlayer.color + ", je moet exact 64 halen!";
+  renderPlayerPositions();
+  } else if (currentPlayer.position == 64) {
+    console.log(currentPlayer);
+    let specialActionText = document.getElementById("special");
+    specialActionText.innerHTML = currentPlayer.color + " heeft gewonnen!";
+    diceButton.disabled = true;
+    // Send user to winning screen
+    location.replace("winner.php");
+    // Print who won
+    let winnerText = document.getElementById("winner");
+    winnerText.innerHTML = currentPlayer.color + " heeft gewonnen!";
+} else {
+    specialActionText.innerHTML =
+      currentPlayer.color + " staat op een doodnormaal vakje!";
   }
 }
 
@@ -272,6 +286,7 @@ function delay(ms) {
 }
 
 async function rollDice() {
+  let specialActionText = document.getElementById("special");
   console.log(sessionPlayerColor)
   // Roll the dice
   let diceValue = printDice();
@@ -283,43 +298,45 @@ async function rollDice() {
   currentPlayer.position = parseInt(currentPlayer.position, 10);
   currentPlayer.position += diceValue;
   // Move the player immediately
-  renderPlayerPositions();
     // Handle special boxes after a delay
-  await delay(300);
     // Perform special actions based on the player's position
-    await delay(300);
-    specialEvents(currentPlayer, diceValue)
 
-    // handle the finish
-    if (currentPlayer.position == 64) {
-        let specialActionText = document.getElementById("special");
-        specialActionText.innerHTML = currentPlayer.color + " heeft gewonnen!";
-        diceButton.disabled = true;
-        // Send user to winning screen
-        location.replace("winner.php")
-        let currentPlayer = players[currentPlayerIndex];
-
-        // Print who won
-        let winnerText = document.getElementById("winner");
-        winnerText.innerHTML = currentPlayer.color + " heeft gewonnen!";
-    }
-    if (currentPlayer.position > 64) {
-        let extra = currentPlayer.position - 64;
-        currentPlayer.position = 64 - extra;}
+  renderPlayerPositions();
+  savePlayerMove(currentPlayer);
+  await delay(300);
+  await specialEvents(currentPlayer, diceValue);
+  renderPlayerPositions();
   
   savePlayerMove(currentPlayer); 
-
-  savePlayerMove(currentPlayer); 
-  currentPlayerIndex ++;
-  if (currentPlayerIndex >= players.length) {
-    currentPlayerIndex = 0; // Reset currentPlayerIndex to loop back to the first player
+  console.log("HIER IS DE CURRENT PLAYER INDEX", currentPlayerIndex)
+  if (currentPlayer.position == 26 || currentPlayer.position == 53) {
+    // opnieuw dobbelen
+    currentPlayer.position = 1;
+    specialActionText.innerHTML =
+      currentPlayer.color + " mag opnieuw dobbelen!";
+      if (currentPlayerIndex == 0){
+        currentPlayerIndex = 0;
+        updateTurn();
+      }
+      else if (currentPlayerIndex == 1){
+        currentPlayerIndex = 1;
+        updateTurn();
+      }
+  } else {
+    if (currentPlayerIndex == 0){
+      currentPlayerIndex = 1;
+      updateTurn();
+    }
+    else if (currentPlayerIndex == 1){
+      currentPlayerIndex = 0;
+      updateTurn();
+    }
   }
-  updateTurn()
 }
 
 function updateTurn() {
   // Prepare the turn data to be sent to the server
-  const turnData = {
+  var turnData = {
     currentPlayerIndex: currentPlayerIndex
   };
 
@@ -328,6 +345,7 @@ function updateTurn() {
     url: 'php/update_turn.php',
     method: 'POST',
     dataType: 'json',
+    cache: false,
     data: turnData,
     success: function(data) {
       console.log('Turn data updated:', data);
@@ -344,6 +362,7 @@ function fetchTurnData() {
     url: 'turn.json',
     method: 'GET',
     dataType: 'json',
+    cache: false,
     success: function(turnData) {
       // Access the turn data in JavaScript
       currentPlayerIndex = turnData.currentPlayerIndex;
@@ -362,7 +381,8 @@ function fetchTurnData() {
 
 
 fetchPlayerData();
-setInterval(fetchPlayerData, 1000);
-setInterval(fetchTurnData, 1000);
+setInterval(fetchTurnData, 100);
+setInterval(fetchPlayerData, 100);
+
 
 

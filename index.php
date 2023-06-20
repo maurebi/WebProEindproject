@@ -384,11 +384,11 @@ include __DIR__ . '/tpl/body-start.php';
     </div>
     <div class="column col-6 row2legenda">
         <div class="box herberg"><img src="img/herberg.png" alt="pixel art of herberg"></div>
-        <div class="meaning">Je overnacht een nachtje in de herberg. Sla een beurt over.</div>
+        <div class="meaning">Ga 4 stappen terug</div>
         <div class="box doornstruik"><img src="img/thornbush.png" alt="pixel art of thornbush"></div>
         <div class="meaning">De doornstruik prikkelt je terug naar 37.</div>
         <div class="box achteruit"><img src="img/flower.png" alt="pixel art of flower"></div>
-        <div class="meaning">Ga 4 stappen terug.</div>
+        <div class="meaning">Dobbel nog een keer</div>
     </div>
 </div>
 
